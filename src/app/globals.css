@@ -19,8 +19,50 @@
   }
 }
 
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html,
 body {
+  width: 100%;
+  height: 100%;
+  overflow-x: hidden;
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+}
+
+.container {
+  width: 100%;
+  max-width: 100vw;
+}
+
+@font-face {
+  font-family: "Objektiv Mk2 Lite";
+  src: url("/fonts/ObjektivMk2_Trial_Lt.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Objektiv Mk2 Mid";
+  src: url("/fonts/ObjektivMk2_Trial_Md.ttf") format("truetype");
+  font-weight: bold;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Objektiv Mk2 Bold";
+  src: url("/fonts/ObjektivMk2_Trial_Bd.ttf") format("truetype");
+  font-weight: bold;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Frutiger World";
+  src: url("/fonts/NeueFrutigerWorld-Medium.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
 }

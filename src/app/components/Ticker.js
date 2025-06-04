@@ -22,28 +22,35 @@ const Ticker = () => {
   }, []);
 
   return (
-    <div className="ticker-container overflow-hidden bg-gray-900 text-white py-4">
-      <div className="ticker-content flex gap-20 whitespace-nowrap animate-scroll">
+    <div className="ticker-container">
+      <div className="ticker-content">
         {news.length > 0 ? (
           news.map((item, index) => (
-            <span 
-              key={index} 
+            <span
+              key={index}
               className="ticker-item mx-[20px] font-bold"
-              style={{ fontSize: "60px", lineHeight: "80px", fontWeight: "bold", whiteSpace: "nowrap", marginRight: "50px"}}
+              style={{
+                fontSize: "24px",
+                whiteSpace: "nowrap",
+              }}
             >
               {item.title}
             </span>
           ))
         ) : (
-            <span 
+          <span
             className="font-bold"
-            style={{ fontSize: "70px", lineHeight: "80px", fontWeight: "bold", whiteSpace: "nowrap" }}
+            style={{
+              fontSize: "24px",
+            }}
           >
             Fetching latest news...
           </span>
         )}
       </div>
       <style jsx>{`
+        @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap"); /* Google Fonts Import */
+
         @keyframes scroll {
           from {
             transform: translateX(10%);
@@ -52,16 +59,22 @@ const Ticker = () => {
             transform: translateX(-100%);
           }
         }
+
         .ticker-container {
           white-space: nowrap;
           overflow: hidden;
           width: 100%;
         }
+
         .ticker-content {
           display: inline-flex;
-          gap: 20px;
+          gap: 50px;
           animation: scroll 100s linear infinite;
-          right: 100%;
+        }
+
+        .ticker-item {
+          font-size: 35px;
+          white-space: nowrap;
         }
       `}</style>
     </div>

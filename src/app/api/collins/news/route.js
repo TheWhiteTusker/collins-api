@@ -1,14 +1,19 @@
 import { scrapeCollinsNews } from "../../../../units/scraper";
 
-export const runtime = "nodejs"; // ✅ Force Next.js to use Node.js runtime
-export const dynamic = "force-dynamic"; // ✅ Ensure dynamic execution
+export const runtime = "nodejs";
+export const dynamic = "force-dynamic";
 
 export async function GET() {
-  const result = await scrapeCollinsNews();
-
-  if (result.error) {
-    return Response.json({ error: result.error }, { status: 500 });
+  try {
+    const newsData = await scrapeCollinsNews();
+    return new Response(JSON.stringify(newsData), {
+      headers: { "Content-Type": "application/json" },
+    });
+  } catch (error) {
+    console.error("Error in API:", error); 
+    return new Response(JSON.stringify({ error: "Failed to fetch news" }), {
+      status: 500,
+      headers: { "Content-Type": "application/json" },
+    });
   }
-
-  return Response.json(result);
 }
