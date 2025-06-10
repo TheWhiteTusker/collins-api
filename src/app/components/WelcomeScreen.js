@@ -104,7 +104,7 @@ const styles = {
     height: '100vh',
     width: '100vw',
     margin: 0,
-    padding: "70px 50px",
+    padding: "150px 50px",
     backgroundColor: "#d9d9d9",
     fontFamily: "Arial, Helvetica, sans-serif",
     overflow: 'hidden',
