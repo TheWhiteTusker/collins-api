@@ -32,7 +32,7 @@ const WelcomeScreen = () => {
   return (
     <div className="container">
       <div className="header">
-        Welcome to Connected Ecosystem Experience Center
+        Welcome to Collins Collaboration Center - INDIA
       </div>
 
       <div className="content">
@@ -135,7 +135,7 @@ const WelcomeScreen = () => {
           top: 0;
           text-align: center;
           padding: 15px;
-          margin-bottom: 10px;
+          margin-bottom: 20px;
           font-size: 24px;
           font-weight: bold;
           width: 100%;
@@ -208,7 +208,7 @@ const WelcomeScreen = () => {
           height: auto;
           width: 100%;
           padding: 0;
-          margin-top: 10px;
+          margin-top: 20px;
           text-align: center;
         }
 
