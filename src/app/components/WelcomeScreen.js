@@ -99,12 +99,8 @@ const styles = {
   },
   bottomSection: {
     width: '100%',
-    marginTop: '30px',
-  },
-  weatherSection: {
-    width: '100%',
     height: 'auto',
-    margintop: '20px',
+    marginTop: '30px',
   },
   newsTicker: {
     backgroundColor: "#000000",
@@ -112,6 +108,7 @@ const styles = {
     padding: "10px",
     fontSize: "16px",
     width: '100%',
+    marginTop: '10px',
     boxSizing: 'border-box',
   },
 };
