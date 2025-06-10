@@ -66,3 +66,18 @@ body {
   font-weight: normal;
   font-style: normal;
 }
+
+@keyframes ticker {
+  0% {
+    transform: translateX(100%);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
+
+.weatherwidget-io {
+  width: 100% !important;
+  height: 83px !important;
+  display: block !important;
+}
