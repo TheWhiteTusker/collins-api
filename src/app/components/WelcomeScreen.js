@@ -35,16 +35,16 @@ const WelcomeScreen = () => {
   //   const interval = setInterval(checkForErrors, 10000);
   //   return () => clearInterval(interval);
   // }, []);
-  useEffect(() => {
-    const scriptId = "weatherwidget-io-js";
-    if (!document.getElementById(scriptId)) {
-      const script = document.createElement("script");
-      script.id = scriptId;
-      script.src = "https://weatherwidget.io/js/widget.min.js";
-      script.async = true;
-      document.body.appendChild(script);
-    }
-  }, []);
+  // useEffect(() => {
+  //   const scriptId = "weatherwidget-io-js";
+  //   if (!document.getElementById(scriptId)) {
+  //     const script = document.createElement("script");
+  //     script.id = scriptId;
+  //     script.src = "https://weatherwidget.io/js/widget.min.js";
+  //     script.async = true;
+  //     document.body.appendChild(script);
+  //   }
+  // }, []);
 
   return (
     <div style={styles.container}>
@@ -63,7 +63,7 @@ const WelcomeScreen = () => {
         </div>
       </div>
 
-      <div style={styles.weatherWidget}>
+      {/* <div style={styles.weatherWidget}>
         <a
           className="weatherwidget-io"
           href="https://forecast7.com/en/12d9777d59/bengaluru/"
@@ -73,7 +73,7 @@ const WelcomeScreen = () => {
         >
           BENGALURU WEATHER
         </a>
-      </div>
+      </div> */}
 
       {/* <div style={styles.bottomSection}> */}
       <div style={styles.tickerContainer}>
@@ -101,7 +101,7 @@ const styles = {
   container: {
     display: 'flex',
     flexDirection: 'column',
-    height: 'auto',
+    height: '100vh',
     width: '100vw',
     margin: 0,
     padding: "70px 50px",
@@ -119,6 +119,7 @@ const styles = {
     boxSizing: 'border-box',
     marginBottom: '20px',
     textAlign: 'center',
+    fontFamily: 'Objektiv Mk2 Lite, Arial, sans-serif'
   },
   mainContent: {
     flex: 1,
