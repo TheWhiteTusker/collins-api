@@ -39,7 +39,7 @@ const WelcomeScreen = () => {
         <div className="video-section">
           <video autoPlay loop muted className="video">
             <source
-              src="/Connected aviation System_With Captions.mp4"
+              src="/connected ecosystem Data-ATC short .mp4"
               type="video/mp4"
             />
           </video>
@@ -157,7 +157,7 @@ const WelcomeScreen = () => {
         }
 
         .video {
-          width: 55vw;
+          width: 90vw;
         }
 
         .vertical-line {
