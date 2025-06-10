@@ -1,22 +1,12 @@
 "use client";
 
 import { useEffect } from "react";
+import WeatherWidget from "./WeatherWidget";
+import Ticker from "./Ticker";
 import "../globals.css";
 
 const WelcomeScreen = () => {
   useEffect(() => {
-    // Weather Widget Script Loading
-    const loadWeatherWidget = () => {
-      const script = document.createElement('script');
-      script.src = 'https://weatherwidget.io/js/widget.min.js';
-      script.async = true;
-      document.body.appendChild(script);
-    };
-
-    // Load weather widget
-    loadWeatherWidget();
-
-    // Error checking for news
     const checkForErrors = async () => {
       try {
         const response = await fetch("/api/collins/news");
@@ -36,14 +26,6 @@ const WelcomeScreen = () => {
     return () => clearInterval(interval);
   }, []);
 
-  // Static news items for testing
-  const newsItems = [
-    "Welcome to Collins Aerospace",
-    "Innovation in Aviation",
-    "Building the Future of Aerospace",
-    "Committed to Excellence"
-  ];
-
   return (
     <div style={styles.container}>
       <div style={styles.header}>
@@ -52,7 +34,7 @@ const WelcomeScreen = () => {
 
       <div style={styles.mainContent}>
         <div style={styles.videoSection}>
-          <video autoPlay loop muted playsInline style={styles.video}>
+          <video autoPlay loop muted style={styles.video}>
             <source
               src="/connected ecosystem Data-ATC short .mp4"
               type="video/mp4"
@@ -63,28 +45,10 @@ const WelcomeScreen = () => {
 
       <div style={styles.bottomSection}>
         <div style={styles.weatherSection}>
-          {/* Direct weather widget implementation */}
-          <a 
-            className="weatherwidget-io" 
-            href="https://forecast7.com/en/12d9777d59/bengaluru/"
-            data-label_1="BENGALURU" 
-            data-label_2="WEATHER" 
-            data-theme="original"
-            data-basecolor="#000000"
-            data-textcolor="#ffffff"
-          >
-            BENGALURU WEATHER
-          </a>
+          <WeatherWidget />
         </div>
-        
         <div style={styles.newsTicker}>
-          <div style={styles.tickerTrack}>
-            {newsItems.map((item, index) => (
-              <span key={index} style={styles.tickerItem}>
-                {item} • 
-              </span>
-            ))}
-          </div>
+          <Ticker />
         </div>
       </div>
     </div>
@@ -112,6 +76,7 @@ const styles = {
     width: '100%',
     boxSizing: 'border-box',
     marginBottom: '20px',
+    textAlign: 'center',
   },
   mainContent: {
     flex: 1,
@@ -128,19 +93,18 @@ const styles = {
     alignItems: 'center',
   },
   video: {
-    width: '100%',
+    width: '90%',
     height: '100%',
     objectFit: 'contain',
   },
   bottomSection: {
     width: '100%',
-    marginTop: 'auto',
+    marginTop: '30px',
   },
   weatherSection: {
     width: '100%',
-    marginBottom: '10px',
-    backgroundColor: '#000000',
-    padding: '10px',
+    height: 'auto',
+    margintop: '20px',
   },
   newsTicker: {
     backgroundColor: "#000000",
@@ -148,42 +112,8 @@ const styles = {
     padding: "10px",
     fontSize: "16px",
     width: '100%',
-    overflow: 'hidden',
-    whiteSpace: 'nowrap',
-  },
-  tickerTrack: {
-    display: 'inline-block',
-    animation: 'ticker 30s linear infinite',
-    whiteSpace: 'nowrap',
-  },
-  tickerItem: {
-    margin: '0 20px',
+    boxSizing: 'border-box',
   },
 };
-
-// Add this to your globals.css
-const globalStyles = `
-  @keyframes ticker {
-    0% {
-      transform: translateX(100%);
-    }
-    100% {
-      transform: translateX(-100%);
-    }
-  }
-
-  .weatherwidget-io {
-    width: 100% !important;
-    height: 83px !important;
-    display: block !important;
-  }
-`;
-
-// Add the global styles
-if (typeof document !== 'undefined') {
-  const styleSheet = document.createElement('style');
-  styleSheet.textContent = globalStyles;
-  document.head.appendChild(styleSheet);
-}
 
 export default WelcomeScreen;
