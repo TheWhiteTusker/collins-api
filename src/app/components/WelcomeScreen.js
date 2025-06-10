@@ -3,7 +3,7 @@
 import { useEffect } from "react";
 import WeatherWidget from "./WeatherWidget";
 import Ticker from "./Ticker";
-import "../globals.css"; // Keep minimal or remove if causing issues
+import "../globals.css";
 
 const WelcomeScreen = () => {
   useEffect(() => {
@@ -32,21 +32,24 @@ const WelcomeScreen = () => {
         Welcome to Collins Collaboration Center - INDIA
       </div>
 
-      <div style={styles.videoSection}>
-        <video autoPlay loop muted style={styles.video}>
-          <source
-            src="/connected ecosystem Data-ATC short .mp4"
-            type="video/mp4"
-          />
-        </video>
+      <div style={styles.mainContent}>
+        <div style={styles.videoSection}>
+          <video autoPlay loop muted style={styles.video}>
+            <source
+              src="/connected ecosystem Data-ATC short .mp4"
+              type="video/mp4"
+            />
+          </video>
+        </div>
       </div>
 
-      <div style={styles.weatherSection}>
-        <WeatherWidget />
-      </div>
-
-      <div style={styles.newsTicker}>
-        <Ticker />
+      <div style={styles.bottomSection}>
+        <div style={styles.weatherSection}>
+          <WeatherWidget />
+        </div>
+        <div style={styles.newsTicker}>
+          <Ticker />
+        </div>
       </div>
     </div>
   );
@@ -54,13 +57,15 @@ const WelcomeScreen = () => {
 
 const styles = {
   container: {
+    display: 'flex',
+    flexDirection: 'column',
+    height: '100vh',
+    width: '100vw',
+    margin: 0,
+    padding: 50,
     backgroundColor: "#d9d9d9",
-    padding: "20px",
     fontFamily: "Arial, Helvetica, sans-serif",
-    width: "100%",
-    height: "100%",
-    overflow: "hidden",
-    textAlign: "center",
+    overflow: 'hidden',
   },
   header: {
     backgroundColor: "#000000",
@@ -68,23 +73,46 @@ const styles = {
     fontSize: "22px",
     fontWeight: "bold",
     padding: "12px",
-    marginBottom: "15px",
+    width: '100%',
+    boxSizing: 'border-box',
+    marginBottom: '20px',
+    textAlign: 'center',
+  },
+  mainContent: {
+    flex: 1,
+    display: 'flex',
+    flexDirection: 'column',
+    width: '100%',
+    boxSizing: 'border-box',
   },
   videoSection: {
-    marginBottom: "20px",
+    width: '100%',
+    flex: 1,
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'center',
   },
   video: {
-    width: "90%",
-    maxWidth: "1000px",
+    width: '90%',
+    height: '100%',
+    objectFit: 'contain',
+    marginBottom: '20px',
+  },
+  bottomSection: {
+    width: '100%',
+    marginTop: 'auto',
   },
   weatherSection: {
-    marginBottom: "20px",
+    width: '100%',
+    margintop: '20px',
   },
   newsTicker: {
     backgroundColor: "#000000",
     color: "#ffffff",
     padding: "10px",
     fontSize: "16px",
+    width: '100%',
+    boxSizing: 'border-box',
   },
 };
 
