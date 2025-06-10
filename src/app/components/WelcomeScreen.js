@@ -162,7 +162,7 @@ const styles = {
   tickerItem: {
     color: '#ffffff',
     fontSize: '24px',
-    padding: '0 20px',
+    padding: '5px',
   },
 };
 
