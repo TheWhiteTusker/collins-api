@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect } from "react";
-import WeatherWidget from "./WeatherWidget";
+// import WeatherWidget from "./WeatherWidget";
 import "../globals.css";
 
 const WelcomeScreen = () => {

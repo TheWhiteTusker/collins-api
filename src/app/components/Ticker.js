@@ -1,6 +1,5 @@
 // Ticker.jsx
 "use client";
-import { useEffect, useState } from 'react';
 
 const Ticker = () => {
   const news = [
