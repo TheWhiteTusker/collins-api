@@ -2,10 +2,20 @@
 
 import { useEffect } from "react";
 import WeatherWidget from "./WeatherWidget";
-import Ticker from "./Ticker";
 import "../globals.css";
 
 const WelcomeScreen = () => {
+  const news = [
+    "RTX's Collins Aerospace enhances capabilities to speed Marine Corps decision-making in battle",
+    "Satair and RTX's Collins Aerospace extend 50-year relationship",
+    "RTX's Collins Aerospace launches Ascentia® Repeaters with Republic Airways",
+    "RTX's Collins Aerospace wins Crystal Cabin Award for its galley.ai solution",
+    "Heathrow AOC and RTX's Collins Aerospace ink contract extension to provide streamlined passenger experience",
+    "RTX's Collins Aerospace joins the Digital Alliance for Aviation to expand predictive maintenance and health monitoring solutions",
+    "RTX's Collins Aerospace unveils enhanced self-service solutions at Passenger Terminal Expo",
+    "RTX's Collins Aerospace demonstrates innovative seating modification and upgrade concept"
+  ];
+
   useEffect(() => {
     const checkForErrors = async () => {
       try {
@@ -44,11 +54,21 @@ const WelcomeScreen = () => {
       </div>
 
       <div style={styles.bottomSection}>
-        {/* <div style={styles.weatherSection}>
-          <WeatherWidget />
-        </div> */}
-        <div style={styles.newsTicker}>
-          <Ticker />
+        <div style={styles.tickerContainer}>
+          <div style={styles.ticker}>
+            <div style={styles.tickerContent}>
+              {news.map((item, index) => (
+                <span key={index} style={styles.tickerItem}>
+                  {item} • 
+                </span>
+              ))}
+              {news.map((item, index) => (
+                <span key={`duplicate-${index}`} style={styles.tickerItem}>
+                  {item} • 
+                </span>
+              ))}
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -70,7 +90,7 @@ const styles = {
   header: {
     backgroundColor: "#000000",
     color: "#ffffff",
-    fontSize: "22px",
+    fontSize: "30px",
     fontWeight: "bold",
     padding: "12px",
     width: '100%',
@@ -102,13 +122,26 @@ const styles = {
     height: 'auto',
     marginTop: '30px',
   },
-  newsTicker: {
-    backgroundColor: "#000000",
-    color: "#ffffff",
-    padding: "10px",
-    fontSize: "16px",
+  tickerContainer: {
     width: '100%',
-    boxSizing: 'border-box',
+    overflow: 'hidden',
+    backgroundColor: '#000000',
+    padding: '10px 0',
+  },
+  ticker: {
+    width: '100%',
+    overflow: 'hidden',
+    whiteSpace: 'nowrap',
+  },
+  tickerContent: {
+    display: 'inline-block',
+    whiteSpace: 'nowrap',
+    animation: 'ticker 120s linear infinite',
+  },
+  tickerItem: {
+    color: '#ffffff',
+    fontSize: '24px',
+    padding: '0 20px',
   },
 };
 

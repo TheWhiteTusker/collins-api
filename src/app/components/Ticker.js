@@ -36,27 +36,27 @@ const Ticker = () => {
 };
 
 const styles = {
-  tickerContainer: {
-    width: '100%',
-    overflow: 'hidden',
-    backgroundColor: '#000000',
-    padding: '10px 0',
-  },
-  ticker: {
-    width: '100%',
-    overflow: 'hidden',
-    whiteSpace: 'nowrap',
-  },
+  // tickerContainer: {
+  //   width: '100%',
+  //   overflow: 'hidden',
+    // backgroundColor: '#000000',
+  //   padding: '10px 0',
+  // },
+  // ticker: {
+  //   width: '100%',
+  //   overflow: 'hidden',
+  //   whiteSpace: 'nowrap',
+  // },
   tickerContent: {
     display: 'inline-block',
     whiteSpace: 'nowrap',
     animation: 'ticker 180s linear infinite',
   },
-  tickerItem: {
-    color: '#ffffff',
-    fontSize: '20px',
-    padding: '0 10px',
-  },
+  // tickerItem: {
+  //   color: '#ffffff',
+  //   fontSize: '20px',
+  //   padding: '0 10px',
+  // },
 };
 
 export default Ticker;
