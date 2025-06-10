@@ -108,7 +108,6 @@ const styles = {
     padding: "10px",
     fontSize: "16px",
     width: '100%',
-    marginTop: '10px',
     boxSizing: 'border-box',
   },
 };
