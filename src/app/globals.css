@@ -78,6 +78,6 @@ body {
 
 .weatherwidget-io {
   width: 100% !important;
-  height: 83px !important;
+  height:"auto" !important;
   display: block !important;
 }

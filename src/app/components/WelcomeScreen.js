@@ -16,24 +16,34 @@ const WelcomeScreen = () => {
     "RTX's Collins Aerospace demonstrates innovative seating modification and upgrade concept"
   ];
 
-  useEffect(() => {
-    const checkForErrors = async () => {
-      try {
-        const response = await fetch("/api/collins/news");
-        if (response.status === 504) {
-          console.error("504 Error: Refreshing page...");
-          setTimeout(() => {
-            window.location.reload();
-          }, 3000);
-        }
-      } catch (error) {
-        console.error("Error fetching data:", error);
-      }
-    };
+  // useEffect(() => {
+  //   const checkForErrors = async () => {
+  //     try {
+  //       const response = await fetch("/api/collins/news");
+  //       if (response.status === 504) {
+  //         console.error("504 Error: Refreshing page...");
+  //         setTimeout(() => {
+  //           window.location.reload();
+  //         }, 3000);
+  //       }
+  //     } catch (error) {
+  //       console.error("Error fetching data:", error);
+  //     }
+  //   };
 
-    checkForErrors();
-    const interval = setInterval(checkForErrors, 10000);
-    return () => clearInterval(interval);
+  //   checkForErrors();
+  //   const interval = setInterval(checkForErrors, 10000);
+  //   return () => clearInterval(interval);
+  // }, []);
+  useEffect(() => {
+    const scriptId = "weatherwidget-io-js";
+    if (!document.getElementById(scriptId)) {
+      const script = document.createElement("script");
+      script.id = scriptId;
+      script.src = "https://weatherwidget.io/js/widget.min.js";
+      script.async = true;
+      document.body.appendChild(script);
+    }
   }, []);
 
   return (
@@ -53,25 +63,37 @@ const WelcomeScreen = () => {
         </div>
       </div>
 
-      <div style={styles.bottomSection}>
-        <div style={styles.tickerContainer}>
-          <div style={styles.ticker}>
-            <div style={styles.tickerContent}>
-              {news.map((item, index) => (
-                <span key={index} style={styles.tickerItem}>
-                  {item} • 
-                </span>
-              ))}
-              {news.map((item, index) => (
-                <span key={`duplicate-${index}`} style={styles.tickerItem}>
-                  {item} • 
-                </span>
-              ))}
-            </div>
+      <div style={styles.weatherWidget}>
+        <a
+          className="weatherwidget-io"
+          href="https://forecast7.com/en/12d9777d59/bengaluru/"
+          data-label_1="BENGALURU"
+          data-label_2="WEATHER"
+          data-theme="mountains"
+        >
+          BENGALURU WEATHER
+        </a>
+      </div>
+
+      {/* <div style={styles.bottomSection}> */}
+      <div style={styles.tickerContainer}>
+        <div style={styles.ticker}>
+          <div style={styles.tickerContent}>
+            {news.map((item, index) => (
+              <span key={index} style={styles.tickerItem}>
+                {item} •
+              </span>
+            ))}
+            {news.map((item, index) => (
+              <span key={`duplicate-${index}`} style={styles.tickerItem}>
+                {item} •
+              </span>
+            ))}
           </div>
         </div>
       </div>
     </div>
+    // </div>
   );
 };
 
@@ -79,10 +101,10 @@ const styles = {
   container: {
     display: 'flex',
     flexDirection: 'column',
-    height: '100vh',
+    height: 'auto',
     width: '100vw',
     margin: 0,
-    padding: "100px 50px",
+    padding: "70px 50px",
     backgroundColor: "#d9d9d9",
     fontFamily: "Arial, Helvetica, sans-serif",
     overflow: 'hidden',
@@ -113,14 +135,12 @@ const styles = {
     alignItems: 'center',
   },
   video: {
-    width: '90%',
+    width: '95%',
     height: '100%',
     objectFit: 'contain',
   },
-  bottomSection: {
-    width: '100%',
-    height: 'auto',
-    marginTop: '30px',
+  weatherWidget: {
+    marginTop: '20px',
   },
   tickerContainer: {
     width: '100%',
