@@ -44,9 +44,9 @@ const WelcomeScreen = () => {
       </div>
 
       <div style={styles.bottomSection}>
-        <div style={styles.weatherSection}>
+        {/* <div style={styles.weatherSection}>
           <WeatherWidget />
-        </div>
+        </div> */}
         <div style={styles.newsTicker}>
           <Ticker />
         </div>
